@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<head>
+<title>TEA ESTATE</title>
+<link rel="stylesheet" href="css/shopstyle.css"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+ <style>
+ div.sort{
+ color:olive;
+ margin-top:50px;
+ margin-left:50px;
+ font-size:20px;
+ 
+ }
+ </style>
+ </head>
+<body>
+<div class="container">
+<div class="header">
+<nav>
+<ul>
+<li><a href="login.html">LOGIN</li>
+<li><a href="registration.html">REGISTER</a></li>
+<li><i class="fa fa-search" ></i></li>
+<li><i class="fa fa-shopping-cart"></i></li>
+</ul>
+</nav>
+</div>
+<div class="header2">
+<nav>
+<ol>
+<li><a href="tea.html">HOME</a></li>
+<li><a href="shop.html">TEASHOP</a></li>
+<li><a href="sustainablity.html">SUSTAINABLITY</a></li>
+<li><a href="why.html">WHYDARJEELING</a></li>
+<div class="sort">
+<body ng-app="">
+
+SORT-BY: <input type="checkbox" ng-model="myVar">
+
+<div ng-hide="myVar">
+
+<input type="checkbox" ng-model="all"> price-high to low<br><br> 
+<input type="checkbox" ng-click="first">price-low to high<br><br>
+<input type="checkbox" ng-click="second">high prevalence<br><br>
+<input type="checkbox" ng-click="second">more than 50%off<br><br>
+<input type="checkbox" ng-click="second">more than 40%off<br><br>
+<input type="checkbox" ng-click="second">more than 30%off<br><br>
+<input type="checkbox" ng-click="second">more than 20%off<br><br>
+<button class="button" onclick="myfunc()">APPLY</button>
+<p id="demo"> </p>
+
+<script>
+function myfunc()
+{
+document.getElementById("demo").innerHTML="YOUR CHANGES ARE APPLIED";
+}
+</script>
+</div>
+
+</ol>
+</nav>
+</div>
+</div>
+</div>
+   <section class="product-section scrollme">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-5 product-info">
+        <p><img src="https://www.happyvalleytea.com/skin/frontend/rwd/default/images/H-Prod-1-new.png" alt="pro-1"> </p>
+        
+		<div ng-app="DemoApp">
+    <div ng-cust="">FESTIVE TEAS</div>
+</div>
+
+<script type="text/javascript">
+
+    var app = angular.module('DemoApp',[]);
+
+    app.directive('ngCust',function(){
+        return {
+
+            link:function($scope,element,attrs) {
+                element.bind('click',function () {
+                    element.html('BLACK TEA<br>OOLONG TEA<BR>WHITE TEA<BR>GREEN TEA<BR>DUST TEA');
+                });}
+        }});
+		</script>
+</div>
+
+      <div class="col-sm-7">
+        <div class="row">
+          <div class="col-sm-6 product-info">
+		   <p><img src="https://www.happyvalleytea.com/skin/frontend/rwd/default/images/H-Prod-2.png" alt="Black Tea"></p>
+		    <a href="#" class="product-btn"><button class="button"><span>click</span></button></a> </div>
+             <div class="col-sm-6 product-info">
+            <p><img src="https://www.happyvalleytea.com/skin/frontend/rwd/default/images/H-Prod-3.png" alt="Green Tea"></p>
+            <a href="#" class="product-btn"><button class="button"><span>click</span></button></a> </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 product-info">
+            <p><img src="../images/pic1.png" alt=""></p>
+            <a href="#" class="product-btn animateme" data-crop="true" data-from="0.7" data-to="0" data-opacity="0" data-translatey="200"><button class="button">click</span></button></a> </div>
+          <div class="col-sm-6 product-info" >
+            <p><img src="https://www.happyvalleytea.com/skin/frontend/rwd/default/images/H-Prod-5.png" alt="Herbal Infusion Tea" ></p>
+            <a href="#" class="product-btn animateme" data-crop="true" data-from="0.7" data-to="0" data-opacity="0" data-translatey="200"><button class="button">click</span></button></a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+</html>
