@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html ng-app = "myModule">
+<head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+body {
+background-image:url(../images/2.gif);
+background-repeat:no-repeat;
+padding: 20px;
+  margin: 20px;
+  background-size:cover;
+  margin-left:450px;
+
+
+color:gray;
+font: normal 16px/1.4 Georgia;
+}
+div.sam {
+  background-color: lightgrey;
+  width: 300px;
+  border: 15px solid olive;
+  
+  padding: 50px;
+  margin: 20px;
+}
+input:not([type='checkbox']), select {
+width: 250px;
+}
+select, input {
+padding: 15px;
+margin-top:20px;
+font-family:inherit;
+}
+input[type='submit'] {
+width: 264px;
+}
+form span {
+color: red;
+}
+input[name='email'].ng-dirty.ng-invalid {
+color: red;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script>  
+var myApp = angular.module("myModule", []);
+myApp.controller("MyController", function($scope) {
+$scope.person = {};
+$scope.person.newsletterOptIn = false;
+$scope.person.channels = [
+{ value: "CREDIT-CARD", label: "CREDIT-CARD" },
+{ value: "DEBIT-CARD", label: "DEBIT-CARD" },
+{ value: "NET-BANKING", label: "NET-BANKING"},
+{ value: "PAYTM", label: "PAYTM"}
+];
+$scope.register = function () {
+$scope.firstNameInvalid = false;
+$scope.lastNameInvalid = false;
+$scope.emailInvalid = false;
+$scope.passwordInvalid=false;
+$scope.addressInvalid=false;
+$scope.pincodeInvalid=false;
+$scope.addpromocodeInvalid=false;
+if(!$scope.registrationForm.firstName.$valid){
+$scope.firstNameInvalid = true;
+}
+if(!$scope.registrationForm.lastName.$valid){
+$scope.lastNameInvalid = true;
+}
+if(!$scope.registrationForm.email.$valid){
+$scope.emailInvalid = true;
+}
+if(!$scope.registrationForm.password.$valid){
+$scope.passwordInvalid = true;
+}
+if(!$scope.registrationForm.address.$valid){
+$scope.addressInvalid = true;
+}
+if(!$scope.registrationForm.pincode.$valid){
+$scope.pincodeInvalid = true;
+}
+if(!$scope.registrationForm.promocode.$valid){
+$scope.promocodeInvalid = true;
+}
+if(!$scope.registrationForm.research.$valid){
+$scope.researchInvalid = true;
+}
+if($scope.registrationForm.$valid){
+<!-- pending implementation -->
+$scope.doShow = true;
+}
+}
+});
+</script></head>
+<body ng-controller="MyController">
+
+<div ng-app="myapp" ng-controller="MyController">
+<div ng-show="registrationForm.$pristine">Form input has not yet started</div>
+<div ng-show="registrationForm.$dirty">Form input has started</div>
+<div class="sam">
+<form name="registrationForm" ng-submit="register()" novalidate>
+<h1>REGISTRATION INFO</h1>
+<input type="text" placeholder="Name" name="firstName" ng-model="person.firstName" required />
+<span ng-show="firstNameInvalid"><br/>Name</span><br/>
+
+<input type="email" placeholder="Email" name="email" ng-model="person.email" required />
+<input type="DATE" placeholder="Birthdate" />
+	  <br><br>
+	  <select name="Gender" placeholder="Gender">
+	     <option value="Gender">GENDER</option>
+		<option value="Gender">male</option>
+		<option value="Gender">female</option>
+		<option value="Gender">others</option>
+		</select>
+		
+<span ng-show="emailInvalid"><br/>A valid email address is required</span><br/>
+<input type="password" placeholder="password" name="password" ng-model="person.password" required />
+<span ng-show="passwordInvalid"><br/>please enter valid password</span><br/>
+<input type="password" placeholder="Confirm password" name="password" ng-model="person.password" required />
+<span ng-show="passwordInvalid"><br/>please re-enter valid password</span><br/>
+<input type="submit" value="SUBMIT"/>
+</form>	  
+</div>
+</div>
+</div>
+</body>
+</html>
